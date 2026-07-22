@@ -7,9 +7,10 @@
   <meta name="description" content="{% block meta_description %}Okumpi is a full-service African ICT company: custom software & SDKs, systems integration, cloud & AI, cybersecurity, networking and managed services.{% endblock %}">
   <meta name="theme-color" content="#0f0c22">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%237c3aed'/><text x='50' y='68' font-size='58' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>O</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="{% static 'fonts/outfit-latin-500-normal.woff2' %}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{% static 'fonts/outfit-latin-600-normal.woff2' %}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{% static 'fonts/plus-jakarta-sans-latin-400-normal.woff2' %}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   {% block extra_head %}{% endblock %}
 </head>

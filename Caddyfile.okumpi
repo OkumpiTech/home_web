@@ -13,6 +13,7 @@ mta.okumpi.com {
 
 # Okumpi website (new)
 okumpi.com {
+  encode zstd gzip          # compress HTML/JSON on the fly (big win on slow links)
   reverse_proxy 127.0.0.1:8080
 }
 

@@ -114,15 +114,18 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # WhiteNoise serves compressed static files straight from gunicorn —
-# no separate web server needed inside the container.
+# no separate web server needed inside the container. The Manifest storage
+# hashes every filename, so browsers cache assets for a full year and only
+# re-download what actually changed.
 STORAGES = {
     'default': {
         'BACKEND': 'django.core.files.storage.FileSystemStorage',
     },
     'staticfiles': {
-        'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
 }
+WHITENOISE_MAX_AGE = 31536000  # 1 year for any non-hashed leftovers
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = Path(os.environ.get('DJANGO_MEDIA_ROOT', BASE_DIR / 'media'))
