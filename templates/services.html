@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Services — Okumpi | Software, Integration, Cloud AI, Security, Networks, Support{% endblock %}
+{% block meta_description %}Okumpi's six practice areas: custom software & SDKs, systems integration (SMS/WhatsApp, mobile money, tax), cloud & AI, cybersecurity & ethical hacking, networking and managed services.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="crumb"><a href="{% url 'home' %}">Home</a> / Services</span>
+    <h1>Every layer of ICT, <span class="grad">one partner</span></h1>
+    <p>Six practice areas that cover the full stack of a modern organisation — from the SDK your partners integrate to the camera at your gate, and everything between.</p>
+  </div>
+</section>
+
+{% for cat in categories %}
+<section class="practice-block accent-{{ cat.accent }} light" id="{{ cat.slug }}">
+  <div class="container">
+    <div class="practice-head reveal">
+      <span class="svc-icon"><svg class="icon"><use href="#i-{{ cat.icon }}"/></svg></span>
+      <div>
+        <div class="svc-tagline">{{ cat.tagline }}</div>
+        <h2>{{ cat.name }}</h2>
+        <p>{{ cat.description }}</p>
+      </div>
+    </div>
+    <div class="sub-grid">
+      {% for s in cat.services.all %}
+      <article class="sub-card reveal">
+        <h3>{{ s.name }}</h3>
+        <p>{{ s.description }}</p>
+        <div class="svc-chips">
+          {% for f in s.get_features_list %}<span class="chip">{{ f }}</span>{% endfor %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<section class="section light tint" id="solutions">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Industry solutions</span>
+      <h2 class="sec-title">Vertical platforms, ready to deploy</h2>
+      <p class="sec-sub">Purpose-built suites for the sectors we know best.</p>
+    </div>
+    <div class="ind-grid">
+      {% for ind in industries %}
+      <article class="ind-card reveal">
+        <div class="ind-top">
+          <span class="ind-icon"><svg class="icon"><use href="#i-{{ ind.icon }}"/></svg></span>
+          <div>
+            <h3>{{ ind.name }}</h3>
+            <div class="ind-head">{{ ind.headline }}</div>
+          </div>
+        </div>
+        <p class="ind-desc">{{ ind.description }}</p>
+        <ul class="ind-feats">
+          {% for f in ind.get_features_list %}
+          <li><svg class="icon"><use href="#i-check"/></svg>{{ f }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="cta-panel reveal">
+      <h2>Not sure which practice you need?</h2>
+      <p>Describe the problem — we'll map the shortest route and quote it fixed-price.</p>
+      <div class="cta-actions">
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Talk to an engineer
+          <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

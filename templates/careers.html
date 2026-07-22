@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Careers — Okumpi | Build Africa's ICT Backbone{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="crumb"><a href="{% url 'home' %}">Home</a> / Careers</span>
+    <h1>Do the best work <span class="grad">of your career</span></h1>
+    <p>Engineers, hackers, network builders and deal makers — join a team shipping systems that run hospitals, courts and banks across Africa.</p>
+    <div class="hero-chips" style="margin-top:28px;">
+      <span class="hero-chip"><svg class="icon"><use href="#i-globe"/></svg>Remote-friendly</span>
+      <span class="hero-chip"><svg class="icon"><use href="#i-bolt"/></svg>Real production impact</span>
+      <span class="hero-chip"><svg class="icon"><use href="#i-book"/></svg>Learning budget</span>
+      <span class="hero-chip"><svg class="icon"><use href="#i-users"/></svg>Mentorship culture</span>
+    </div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Open positions</span>
+      <h2 class="sec-title">{{ jobs|length }} open role{{ jobs|length|pluralize }}</h2>
+      <p class="sec-sub">Don't see your role? Pitch us at <a href="mailto:careers@okumpi.com" style="color:var(--accent-hi);">careers@okumpi.com</a> anyway.</p>
+    </div>
+    <div class="card-grid two">
+      {% for job in jobs %}
+      <article class="g-card reveal">
+        <span class="badge {% if job.job_type == 'contract' %}amber{% elif job.job_type == 'intern' %}cyan{% elif job.job_type == 'part_time' %}magenta{% endif %}">{{ job.get_job_type_display }}</span>
+        <h3>{{ job.title }}</h3>
+        <p>{{ job.description }}</p>
+        <div class="svc-chips" style="margin-top:14px;">
+          {% for t in job.get_tags_list %}<span class="chip">{{ t }}</span>{% endfor %}
+        </div>
+        <div class="meta-row">
+          <span class="meta-item"><svg class="icon"><use href="#i-pin"/></svg>{{ job.location }}</span>
+          <span class="meta-item"><svg class="icon"><use href="#i-calendar"/></svg>Posted {{ job.created|date:"M j, Y" }}</span>
+          <a href="mailto:careers@okumpi.com?subject=Application: {{ job.title|urlencode }}" class="svc-link accent-violet" style="margin-left:auto; --acc: var(--accent-hi);">Apply
+            <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </article>
+      {% empty %}
+      <p style="color:var(--text-dim);">No open roles right now — check back soon or email careers@okumpi.com.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

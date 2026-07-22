@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Knowledge Base — Okumpi | Guides, SDK Docs & Checklists{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="crumb"><a href="{% url 'home' %}">Home</a> / Knowledge Base</span>
+    <h1>Guides that <span class="grad">unblock you</span></h1>
+    <p>SDK quick-starts, integration checklists and hardening guides — free, practical and maintained by our engineers.</p>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="card-grid">
+      {% for a in articles %}
+      <article class="g-card reveal">
+        {% if a.category %}<span class="badge">{{ a.category.name }}</span>{% endif %}
+        <h3>{{ a.title }}</h3>
+        <p>{{ a.content|truncatechars:150 }}</p>
+        <div class="meta-row">
+          <span class="meta-item"><svg class="icon"><use href="#i-book"/></svg>Guide</span>
+          <span class="meta-item"><svg class="icon"><use href="#i-calendar"/></svg>Updated {{ a.updated|date:"M j, Y" }}</span>
+        </div>
+      </article>
+      {% empty %}
+      <p style="color:var(--text-dim);">Articles coming soon.</p>
+      {% endfor %}
+    </div>
+
+    <div class="cta-panel reveal" style="margin-top:60px;">
+      <h2>Prefer the source?</h2>
+      <p>Our open-source tools, SDK samples and integration templates live on GitHub.</p>
+      <div class="cta-actions">
+        <a href="https://github.com/okumpi" class="btn btn-ghost btn-lg">
+          <svg class="icon"><use href="#i-github"/></svg>github.com/okumpi</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

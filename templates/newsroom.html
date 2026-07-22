@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Newsroom — Okumpi | Announcements & Press{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="crumb"><a href="{% url 'home' %}">Home</a> / Newsroom</span>
+    <h1>The latest from <span class="grad">Okumpi</span></h1>
+    <p>Announcements, partnerships, expansion and milestones from across the company.</p>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="card-grid">
+      {% for item in news_items %}
+      <article class="g-card reveal">
+        <span class="badge {% if item.news_type == 'partnership' %}cyan{% elif item.news_type == 'expansion' %}lime{% elif item.news_type == 'award' %}amber{% elif item.news_type == 'insight' %}magenta{% endif %}">{{ item.get_news_type_display }}</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.excerpt|default:item.content|truncatechars:160 }}</p>
+        <div class="meta-row">
+          <span class="meta-item"><svg class="icon"><use href="#i-calendar"/></svg>{{ item.created|date:"M j, Y" }}</span>
+        </div>
+      </article>
+      {% empty %}
+      <p style="color:var(--text-dim);">No news yet — watch this space.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

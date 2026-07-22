@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog — Okumpi | Engineering, AI, Security & Integration{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="crumb"><a href="{% url 'home' %}">Home</a> / Blog</span>
+    <h1>Notes from <span class="grad">the build floor</span></h1>
+    <p>Practical writing on software, AI, security and the African integration landscape — from the people doing the work.</p>
+    <div class="hero-chips" style="margin-top:28px;">
+      {% for c in categories %}
+      <span class="hero-chip">{{ c.name }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="card-grid">
+      {% for post in posts %}
+      <article class="g-card reveal">
+        {% if post.category %}<span class="badge {% if post.category.name == 'Security' %}magenta{% elif post.category.name == 'AI & Data' %}cyan{% elif post.category.name == 'Integration' %}lime{% endif %}">{{ post.category.name }}</span>{% endif %}
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.excerpt }}</p>
+        <div class="meta-row">
+          <span class="meta-item"><svg class="icon"><use href="#i-users"/></svg>{{ post.author_name }}</span>
+          <span class="meta-item"><svg class="icon"><use href="#i-clock"/></svg>{{ post.read_minutes }} min read</span>
+          <span class="meta-item"><svg class="icon"><use href="#i-calendar"/></svg>{{ post.created|date:"M j" }}</span>
+        </div>
+      </article>
+      {% empty %}
+      <p style="color:var(--text-dim);">First posts landing soon.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

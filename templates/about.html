@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us — Okumpi | Full-Service ICT, Engineered in Africa{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="crumb"><a href="{% url 'home' %}">Home</a> / About Us</span>
+    <h1>ICT that works, <span class="grad">engineered in Africa</span></h1>
+    <p>Okumpi exists because African organisations deserve technology partners who understand both world-class engineering and the realities on the ground.</p>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="sec-split">
+      <div class="reveal">
+        <span class="eyebrow">Our story</span>
+        <h2 class="sec-title">From Kampala to the continent</h2>
+        <p style="margin-top:16px; color:var(--text-dim);">
+          We started as a small team of engineers doing tax-system integrations in Uganda —
+          the unglamorous plumbing that businesses actually run on. A decade later, that
+          obsession with systems that <em>work</em> has grown into a full-service ICT company:
+          software and SDKs, payments and messaging integration, cloud and AI, cybersecurity,
+          networks and round-the-clock support.
+        </p>
+        <p style="margin-top:14px; color:var(--text-dim);">
+          Today we serve governments, hospitals, courts, banks and startups across 12+
+          African countries — with offices in Kampala and Nairobi, and delivery teams that
+          work wherever the problem is.
+        </p>
+      </div>
+      <div class="reveal">
+        <div class="stats-grid" style="grid-template-columns: 1fr 1fr; gap: 26px;">
+          <div><div class="stat-num" data-count="10" data-suffix="+">10+</div><div class="stat-label">Years</div></div>
+          <div><div class="stat-num" data-count="500" data-suffix="+">500+</div><div class="stat-label">Projects</div></div>
+          <div><div class="stat-num" data-count="200" data-suffix="+">200+</div><div class="stat-label">Clients</div></div>
+          <div><div class="stat-num" data-count="50" data-suffix="+">50+</div><div class="stat-label">Engineers</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section light tint">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What drives us</span>
+      <h2 class="sec-title">Mission, vision, values</h2>
+    </div>
+    <div class="card-grid">
+      <article class="g-card reveal">
+        <span class="badge">Mission</span>
+        <h3>Shorten the route</h3>
+        <p>Remove every unnecessary step between an African organisation and technology that works — one accountable partner, clear pricing, systems that ship.</p>
+      </article>
+      <article class="g-card reveal">
+        <span class="badge cyan">Vision</span>
+        <h3>Africa builds here</h3>
+        <p>A continent where institutions run on software engineered at home — secure, localised and world-class — instead of imported systems that half-fit.</p>
+      </article>
+      <article class="g-card reveal">
+        <span class="badge lime">Values</span>
+        <h3>Ship. Secure. Stay.</h3>
+        <p>We ship what we promise, we secure everything we touch, and we stay after go-live. Honesty about trade-offs beats a slick pitch, every time.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Where we work</span>
+      <h2 class="sec-title">12+ countries and counting</h2>
+      <p class="sec-sub">Offices in Kampala and Nairobi, delivery across the continent.</p>
+    </div>
+    <div class="footer-countries reveal" style="border:none; justify-content:center; padding-top:0;">
+      {% for c in countries %}
+      <span class="country-chip" style="font-size:0.86rem; padding:9px 17px;">{{ c.flag }} {{ c.name }}{% if c.office_location %} · {{ c.office_location }}{% endif %}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-tight light" style="border-top:1px solid var(--line);">
+  <div class="container">
+    <p class="marquee-label reveal" style="margin-bottom:26px;">Trusted by <strong>institutions across the region</strong></p>
+    <div class="marquee">
+      <div class="marquee-track">
+        {% for p in client_logos %}<span class="logo-chip"><img src="{% static p.logo %}" alt="{{ p.name }}" loading="lazy"></span>{% endfor %}
+        {% for p in client_logos %}<span class="logo-chip"><img src="{% static p.logo %}" alt="" aria-hidden="true" loading="lazy"></span>{% endfor %}
+        {% for p in client_logos %}<span class="logo-chip"><img src="{% static p.logo %}" alt="" aria-hidden="true" loading="lazy"></span>{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="cta-panel reveal">
+      <h2>Come build with us</h2>
+      <p>Whether you're hiring us or joining us — the shortest route starts with a conversation.</p>
+      <div class="cta-actions">
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Start a project</a>
+        <a href="{% url 'careers' %}" class="btn btn-ghost btn-lg">See open roles</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

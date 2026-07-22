@@ -1,0 +1,216 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Okumpi — Your Shortest Route to ICT That Works{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Okumpi is a full-service African ICT company: custom software & SDKs, systems integration, cloud & AI, cybersecurity, networking and managed services.{% endblock %}">
+  <meta name="theme-color" content="#0f0c22">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%237c3aed'/><text x='50' y='68' font-size='58' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>O</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<!-- ====================== SVG ICON SPRITE ====================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v5M15 2v5M5 7h14M7 7v4a5 5 0 0 0 10 0V7M12 16v6"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 1 0-.9-8.9 6 6 0 1 0-11.2 2.9A3.5 3.5 0 0 0 6.5 19z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="19" r="2.2"/><circle cx="19" cy="19" r="2.2"/><path d="M12 7.2v3.3M11 11.5l-4.5 5.6M13 11.5l4.5 5.6"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="2.5" y="14" width="4.5" height="6" rx="2"/><rect x="17" y="14" width="4.5" height="6" rx="2"/><path d="M19.5 20a4 4 0 0 1-4 2.5H13"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.7 20c.5-4 2.9-6 6.3-6s5.8 2 6.3 6"/><circle cx="17.2" cy="9" r="2.5"/><path d="M17.8 14.6c2.6.4 4 2.1 4.4 4.9"/></symbol>
+    <symbol id="i-health" viewBox="0 0 24 24"><path d="M12 21C7.2 17.3 3 13.6 3 9.4A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 9 2.4c0 4.2-4.2 7.9-9 11.6z"/><polyline points="7 12 10 12 11.4 9.4 13.2 14.6 14.6 12 17 12"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="4.5" y="3" width="15" height="18" rx="1.5"/><path d="M9 7h1.6M13.4 7H15M9 11h1.6M13.4 11H15M9 15h1.6M13.4 15H15M10.5 21v-3h3v3"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v14M9 20h6M4.5 7h15"/><path d="M6.5 7l-2.6 5.6a3 3 0 0 0 5.8 0L7.5 7M17.5 7l-2.6 5.6a3 3 0 0 0 5.8 0L18.5 7"/><circle cx="12" cy="4" r="1.2"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4.5c3-2 6 1.8 9 .2 2.2-1.2 5-.7 5-.7v9.5s-2.8-.5-5 .7c-3 1.6-6-2.2-9-.2"/></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9.5L12 4l9 5.5"/><path d="M5 10v7.5M9.7 10v7.5M14.3 10v7.5M19 10v7.5M3 20.5h18"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path class="icon-fill" fill="currentColor" stroke="none" d="M12 2.6l2.9 5.8 6.4.9-4.6 4.6 1.1 6.4L12 17.4l-5.8 3-1.1-6.5L.5 9.3l6.4-.9z"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path class="icon-fill" fill="currentColor" stroke="none" d="M4.5 17v-4.4c0-2.9 1.9-5.1 4.8-5.6l.6 1.7c-1.6.5-2.6 1.6-2.7 3h2.6V17H4.5zm9.6 0v-4.4c0-2.9 1.9-5.1 4.8-5.6l.6 1.7c-1.6.5-2.6 1.6-2.7 3h2.6V17h-5.3z"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5"/><polyline points="11 18 5 12 11 6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><polyline points="13 6 19 12 13 18"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-8 8H4l2.6-2.6A8 8 0 1 1 21 11.5z"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3.5V7M15 3.5V7M9 17v3.5M15 17v3.5M3.5 9H7M3.5 15H7M17 9h3.5M17 15h3.5"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3.5 3.5V20.5h17"/><path d="M7.5 15.5l3.8-4 3 3 5.2-6"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5a13.5 13.5 0 0 1 0 17M12 3.5a13.5 13.5 0 0 0 0 17"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M21 16.5v3a2 2 0 0 1-2.2 2A19 19 0 0 1 2.5 5.2 2 2 0 0 1 4.5 3h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.6 10.7a16 16 0 0 0 4.7 4.7l1.1-1.15a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><polyline points="3.5 7 12 13 20.5 7"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5S5 15.7 5 10a7 7 0 0 1 14 0c0 5.7-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><polyline points="12 7 12 12 15.5 14"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L3.5 14h7L10 22l9.5-12h-7z"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="13" rx="2"/><path d="M8.5 7V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2M2.5 12.5h19"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M8 2.5V7M16 2.5V7M3.5 10.5h17"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.2A2.8 2.8 0 0 1 6.8 16.5H20"/><path d="M6.8 2.5H20v19H6.8A2.8 2.8 0 0 1 4 18.7V5.3a2.8 2.8 0 0 1 2.8-2.8z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path class="icon-fill" fill="currentColor" stroke="none" d="M4.98 3.5a2.5 2.5 0 1 1-.02 5 2.5 2.5 0 0 1 .02-5zM3 9h4v12H3zM9.5 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4 0 4.78 2.6 4.78 6V21h-4v-5.5c0-1.3-.03-3-1.85-3-1.85 0-2.13 1.44-2.13 2.9V21h-4z"/></symbol>
+    <symbol id="i-xsocial" viewBox="0 0 24 24"><path class="icon-fill" fill="currentColor" stroke="none" d="M18.2 2.5h3.1l-6.8 7.8 8 11.2h-6.3l-4.9-6.4-5.6 6.4H2.6l7.3-8.3L2.2 2.5h6.4l4.4 5.9zM17.1 19.7h1.7L7.7 4.3H5.9z"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path class="icon-fill" fill="currentColor" stroke="none" d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.12-2.4-.12-2.4 0-4 1.45-4 4.1v2.3H7.6V13h2.7v8z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path class="icon-fill" fill="currentColor" stroke="none" d="M12 2.2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.3.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0 0 12 2.2z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path class="icon-fill" fill="currentColor" stroke="none" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.24.66-1.35 1.26-1.9 1.3-.5.05-1.1.24-3.72-.77-3.14-1.24-5.12-4.45-5.28-4.66-.15-.2-1.26-1.68-1.26-3.2 0-1.53.8-2.28 1.08-2.6.28-.3.62-.38.82-.38h.6c.2 0 .45-.07.7.53.25.62.86 2.13.93 2.28.08.15.13.34.03.54-.6 1.2-1.24 1.16-.92 1.71.9 1.55 1.8 2.09 3.17 2.77.23.12.37.1.5-.06.14-.15.6-.7.75-.94.16-.24.32-.2.53-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.62-.18 1.28z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ====================== NAVBAR ====================== -->
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="{% url 'home' %}" class="brand" aria-label="Okumpi home">
+      <span class="brand-mark">O</span>
+      <span class="brand-text">
+        <span class="brand-name">Okumpi</span>
+        <span class="brand-sub"><strong>Your shortest route</strong> to ICT that works</span>
+      </span>
+    </a>
+
+    <ul class="nav-menu">
+      <li><a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}>Home</a></li>
+      <li><a href="{% url 'services' %}" {% if request.resolver_match.url_name == 'services' %}class="active"{% endif %}>Services</a></li>
+      <li><a href="{% url 'home' %}#solutions">Solutions</a></li>
+      <li><a href="{% url 'about' %}" {% if request.resolver_match.url_name == 'about' %}class="active"{% endif %}>About</a></li>
+      <li><a href="{% url 'careers' %}" {% if request.resolver_match.url_name == 'careers' %}class="active"{% endif %}>Careers</a></li>
+      <li><a href="{% url 'blog' %}" {% if request.resolver_match.url_name == 'blog' %}class="active"{% endif %}>Blog</a></li>
+      <li><a href="{% url 'newsroom' %}" {% if request.resolver_match.url_name == 'newsroom' %}class="active"{% endif %}>Newsroom</a></li>
+      <li><a href="{% url 'community' %}" {% if request.resolver_match.url_name == 'community' %}class="active"{% endif %}>Community</a></li>
+      <li class="nav-drop">
+        <a href="#" aria-haspopup="true">More<svg class="icon"><use href="#i-chevron-down"/></svg></a>
+        <div class="drop-menu">
+          <a href="{% url 'knowledge_base' %}"><svg class="icon"><use href="#i-chip"/></svg>Knowledge Base</a>
+          <a href="{% url 'home' %}#testimonials"><svg class="icon"><use href="#i-quote"/></svg>Testimonials</a>
+          <a href="{% url 'home' %}#faq"><svg class="icon"><use href="#i-chat"/></svg>FAQ</a>
+          <a href="{% url 'contact' %}"><svg class="icon"><use href="#i-mail"/></svg>Contact</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <span class="lang-chip">EN<svg class="icon"><use href="#i-chevron-down"/></svg></span>
+      <a href="{% url 'contact' %}" class="btn btn-primary nav-cta">Get started now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg class="icon" id="navToggleIcon"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile panel -->
+<div class="mobile-panel" id="mobilePanel">
+  <a href="{% url 'home' %}">Home</a>
+  <a href="{% url 'services' %}">Services <span>SDKs · Cloud AI · Security</span></a>
+  <a href="{% url 'home' %}#solutions">Solutions <span>HRMS · Hospital · Judicial</span></a>
+  <a href="{% url 'home' %}#testimonials">Testimonials</a>
+  <a href="{% url 'home' %}#faq">FAQ</a>
+  <div class="mobile-group">Company</div>
+  <a href="{% url 'about' %}">About Us</a>
+  <a href="{% url 'careers' %}">Careers</a>
+  <a href="{% url 'newsroom' %}">Newsroom</a>
+  <div class="mobile-group">Resources</div>
+  <a href="{% url 'blog' %}">Blog</a>
+  <a href="{% url 'knowledge_base' %}">Knowledge Base</a>
+  <a href="{% url 'community' %}">Community Forum</a>
+  <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Get started now</a>
+</div>
+
+{% if messages %}
+<div class="toast-stack">
+  {% for message in messages %}
+  <div class="toast {% if message.tags == 'error' %}error{% endif %}">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<main>{% block content %}{% endblock %}</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="{% url 'home' %}" class="brand">
+          <span class="brand-mark">O</span>
+          <span class="brand-text"><span class="brand-name">Okumpi</span></span>
+        </a>
+        <p>{{ SITE_TAGLINE }}. Full-service ICT engineered in Africa — software, integration, cloud AI, security and support under one roof.</p>
+        <form class="capture-form" action="{% url 'newsletter_subscribe' %}" method="post" data-capture>
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.path }}">
+          <input type="email" name="email" placeholder="Enter your email" required aria-label="Email address">
+          <button type="submit" class="btn btn-primary" aria-label="Subscribe">
+            <svg class="icon"><use href="#i-send"/></svg>
+          </button>
+        </form>
+        <div class="capture-msg" role="status"></div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="{% url 'services' %}#okumpi-build">Software & SDKs</a></li>
+          <li><a href="{% url 'services' %}#okumpi-integrate">Integration & Messaging</a></li>
+          <li><a href="{% url 'services' %}#okumpi-cloud-ai">Cloud & AI</a></li>
+          <li><a href="{% url 'services' %}#okumpi-secure">Cybersecurity</a></li>
+          <li><a href="{% url 'services' %}#okumpi-connect">Networking</a></li>
+          <li><a href="{% url 'services' %}#okumpi-care">Managed Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="{% url 'home' %}#solutions">OkuHR — HRMS</a></li>
+          <li><a href="{% url 'home' %}#solutions">OkuMed — Hospital</a></li>
+          <li><a href="{% url 'home' %}#solutions">OkuEstate — Property</a></li>
+          <li><a href="{% url 'home' %}#solutions">OkuJustice — Judicial</a></li>
+          <li><a href="{% url 'home' %}#solutions">Government</a></li>
+          <li><a href="{% url 'home' %}#solutions">Banking & Fintech</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="{% url 'about' %}">About Us</a></li>
+          <li><a href="{% url 'careers' %}">Careers</a></li>
+          <li><a href="{% url 'newsroom' %}">Newsroom</a></li>
+          <li><a href="{% url 'blog' %}">Blog</a></li>
+          <li><a href="{% url 'knowledge_base' %}">Knowledge Base</a></li>
+          <li><a href="{% url 'community' %}">Community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li><svg class="icon"><use href="#i-pin"/></svg><span>Kampala, Uganda — HQ<br>Nairobi, Kenya</span></li>
+          <li><svg class="icon"><use href="#i-phone"/></svg><a href="tel:+256200585858">+256 200 585 858</a></li>
+          <li><svg class="icon"><use href="#i-whatsapp"/></svg><a href="tel:+254200585858">+254 200 585 858</a></li>
+          <li><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:hello@okumpi.com">hello@okumpi.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    {% block footer_countries %}{% endblock %}
+
+    <div class="footer-bottom">
+      <p>© 2026 Okumpi Technologies. All rights reserved. · Proudly African 🌍</p>
+      <div class="social-row">
+        <a href="#" class="social-btn" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a>
+        <a href="#" class="social-btn" aria-label="X (Twitter)"><svg class="icon"><use href="#i-xsocial"/></svg></a>
+        <a href="#" class="social-btn" aria-label="Facebook"><svg class="icon"><use href="#i-facebook"/></svg></a>
+        <a href="https://github.com/okumpi" class="social-btn" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
+        <a href="https://wa.me/256200585858" class="social-btn" aria-label="WhatsApp"><svg class="icon"><use href="#i-whatsapp"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="{% static 'js/main.js' %}" defer></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

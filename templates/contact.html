@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact — Okumpi | Start Your Project{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="crumb"><a href="{% url 'home' %}">Home</a> / Contact</span>
+    <h1>Let's map your <span class="grad">shortest route</span></h1>
+    <p>Tell us what you're building — or what's broken. Free discovery call, fixed-price proposal within one week.</p>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- FORM -->
+      <div class="form-card reveal">
+        <form method="post" action="{% url 'contact' %}" novalidate>
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="field">
+              <label for="id_name">Full name *</label>
+              <input type="text" name="name" id="id_name" placeholder="Your full name" required value="{{ form.name.value|default_if_none:'' }}">
+              {% if form.name.errors %}<div class="errors">{{ form.name.errors.0 }}</div>{% endif %}
+            </div>
+            <div class="field">
+              <label for="id_email">Work email *</label>
+              <input type="email" name="email" id="id_email" placeholder="you@company.com" required value="{{ form.email.value|default_if_none:'' }}">
+              {% if form.email.errors %}<div class="errors">{{ form.email.errors.0 }}</div>{% endif %}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="id_phone">Phone / WhatsApp</label>
+              <input type="tel" name="phone" id="id_phone" placeholder="+256 700 000 000" value="{{ form.phone.value|default_if_none:'' }}">
+            </div>
+            <div class="field">
+              <label for="id_company">Organisation</label>
+              <input type="text" name="company" id="id_company" placeholder="Company / institution" value="{{ form.company.value|default_if_none:'' }}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="id_country">Country</label>
+              <select name="country" id="id_country">
+                <option value="">Select country…</option>
+                {% for c in countries %}
+                <option value="{{ c.name }}" {% if form.country.value == c.name %}selected{% endif %}>{{ c.flag }} {{ c.name }}</option>
+                {% endfor %}
+                <option value="Other" {% if form.country.value == 'Other' %}selected{% endif %}>🌍 Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="id_service_interest">What do you need?</label>
+              <select name="service_interest" id="id_service_interest">
+                <option value="">Select a service…</option>
+                {% for cat in categories %}
+                <option value="{{ cat.name }}" {% if form.service_interest.value == cat.name %}selected{% endif %}>{{ cat.name }} — {{ cat.tagline }}</option>
+                {% endfor %}
+                <option value="Not sure" {% if form.service_interest.value == 'Not sure' %}selected{% endif %}>Not sure yet — advise me</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="id_message">Project details *</label>
+            <textarea name="message" id="id_message" rows="5" placeholder="Tell us about your project, timeline and budget range…" required>{{ form.message.value|default_if_none:'' }}</textarea>
+            {% if form.message.errors %}<div class="errors">{{ form.message.errors.0 }}</div>{% endif %}
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Send message
+            <svg class="icon"><use href="#i-send"/></svg>
+          </button>
+          <p class="capture-note" style="text-align:center;">We reply within one business day. Your details stay private.</p>
+        </form>
+      </div>
+
+      <!-- INFO -->
+      <div>
+        <div class="info-card reveal">
+          <h3>Talk to a human</h3>
+          <ul class="info-list">
+            <li><svg class="icon"><use href="#i-phone"/></svg>
+              <div><strong>Uganda — HQ</strong><a href="tel:+256200585858">+256 200 585 858</a></div></li>
+            <li><svg class="icon"><use href="#i-phone"/></svg>
+              <div><strong>Kenya</strong><a href="tel:+254200585858">+254 200 585 858</a></div></li>
+            <li><svg class="icon"><use href="#i-whatsapp"/></svg>
+              <div><strong>WhatsApp</strong><a href="https://wa.me/256200585858">Chat with us now</a></div></li>
+            <li><svg class="icon"><use href="#i-mail"/></svg>
+              <div><strong>Email</strong><a href="mailto:hello@okumpi.com">hello@okumpi.com</a></div></li>
+          </ul>
+        </div>
+        <div class="info-card reveal">
+          <h3>Offices</h3>
+          <ul class="info-list">
+            <li><svg class="icon"><use href="#i-pin"/></svg>
+              <div><strong>Kampala, Uganda</strong><span>Headquarters — engineering, SOC &amp; delivery</span></div></li>
+            <li><svg class="icon"><use href="#i-pin"/></svg>
+              <div><strong>Nairobi, Kenya</strong><span>East Africa delivery &amp; business development</span></div></li>
+            <li><svg class="icon"><use href="#i-clock"/></svg>
+              <div><strong>Hours</strong><span>Mon–Fri 8:00–18:00 EAT · Helpdesk &amp; SOC 24/7</span></div></li>
+          </ul>
+        </div>
+        <div class="info-card reveal">
+          <h3>Serving 12+ countries</h3>
+          <div class="footer-countries" style="border:none; padding:4px 0 0;">
+            {% for c in countries|slice:":8" %}<span class="country-chip">{{ c.flag }} {{ c.name }}</span>{% endfor %}
+            <span class="country-chip">+ more</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

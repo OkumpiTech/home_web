@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Community Forum — Okumpi | Where African ICT Leaders Compare Notes{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="crumb"><a href="{% url 'home' %}">Home</a> / Community</span>
+    <h1>Compare notes with <span class="grad">people who ship</span></h1>
+    <p>An open forum for CTOs, ICT managers and developers across Africa — vendor-neutral, moderated, and free.</p>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="card-grid two">
+      {% for cat in forum_categories %}
+      <article class="g-card reveal">
+        <div class="ind-top">
+          <span class="ind-icon"><svg class="icon"><use href="#i-{{ cat.icon }}"/></svg></span>
+          <h3 style="margin-bottom:0;">{{ cat.name }}</h3>
+        </div>
+        <p>{{ cat.description }}</p>
+        <div class="meta-row">
+          <span class="meta-item"><svg class="icon"><use href="#i-chat"/></svg>{{ cat.posts.count }} discussion{{ cat.posts.count|pluralize }}</span>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <div class="cta-panel reveal" style="margin-top:60px;">
+      <h2>Join the conversation</h2>
+      <p>Forum accounts are free. Ask anything — from "build vs buy" to EFRIS edge cases.</p>
+      <div class="cta-actions">
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Request an invite</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
