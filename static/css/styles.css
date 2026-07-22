@@ -58,6 +58,7 @@
 .accent-cyan    { --acc: #22d3ee; --acc-rgb: 34, 211, 238;  }
 .accent-lime    { --acc: #a3e635; --acc-rgb: 163, 230, 53;  }
 .accent-amber   { --acc: #fbbf24; --acc-rgb: 251, 191, 36;  }
+.accent-rose    { --acc: #fb7185; --acc-rgb: 251, 113, 133; }
 
 /* --------------------------------------------------------------------------
    Reset & base
@@ -1357,7 +1358,7 @@ h1, h2, h3, h4 {
    Apply class="light" to a section; every var-driven component re-themes.
    ========================================================================== */
 .light {
-  background: #fdfcff;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 55%, #fcfbff 100%);
   --text-hi: #221a4e;
   --text: #47406e;
   --text-dim: #746e97;
@@ -1368,7 +1369,7 @@ h1, h2, h3, h4 {
   --line-strong: rgba(34, 26, 78, 0.18);
 }
 .light.tint {
-  background: linear-gradient(180deg, #fdfcff 0%, #f4f1ff 45%, #fdfcff 100%);
+  background: linear-gradient(180deg, #fdfcff 0%, #efe9ff 48%, #fdfcff 100%);
 }
 
 /* Cards on white — solid, soft-shadowed, no glass */
@@ -1451,6 +1452,17 @@ h1, h2, h3, h4 {
 
 /* Light marquee band */
 .marquee-band.light { border-top: none; }
+
+.marquee-band.light {
+  background: linear-gradient(180deg, #ffffff 0%, #f3efff 62%, #fcfbff 100%);
+}
+
+/* Dark section with a breathing indigo gradient */
+.dark-grad {
+  background:
+    radial-gradient(720px 300px at 78% 12%, rgba(139, 92, 246, 0.12), transparent 65%),
+    linear-gradient(180deg, var(--bg-0) 0%, #131030 48%, var(--bg-0) 100%);
+}
 
 /* The CTA panel stays a dark violet jewel inside light sections */
 .light .cta-panel {

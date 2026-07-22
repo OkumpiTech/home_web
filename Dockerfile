@@ -19,6 +19,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Project code
 COPY . .
 
+# Ensure the entrypoint is executable (Windows checkouts lose the +x bit)
+RUN chmod +x /app/docker-entrypoint.sh
+
 # Pre-build the static bundle into the image
 RUN python manage.py collectstatic --noinput
 

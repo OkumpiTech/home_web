@@ -36,7 +36,7 @@ newsletter subscribers.
 | URL | Page |
 |---|---|
 | `/` | Home — hero, testimonial carousel, partner marquees, services, solutions, security spotlight, stats, why-us, FAQ, CTA |
-| `/services/` | Six practice areas with all sub-services |
+| `/services/` | Eight practice areas with all sub-services |
 | `/about/` | Story, mission/vision/values, countries, client logos |
 | `/careers/` | Open roles (from DB) |
 | `/newsroom/` | News & announcements |

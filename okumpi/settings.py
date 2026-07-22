@@ -32,6 +32,12 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.environ.get('DJANGO_DEBUG', '1') == '1'
 
 ALLOWED_HOSTS = env_list('DJANGO_ALLOWED_HOSTS', '*')
+# Always allow loopback so the Docker healthcheck and local curl work.
+if '*' not in ALLOWED_HOSTS:
+    for _h in ('127.0.0.1', 'localhost'):
+        if _h not in ALLOWED_HOSTS:
+            ALLOWED_HOSTS.append(_h)
+
 CSRF_TRUSTED_ORIGINS = env_list('DJANGO_CSRF_TRUSTED_ORIGINS')
 
 # Behind Caddy (which terminates HTTPS) trust the forwarded proto header.

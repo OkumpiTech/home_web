@@ -58,11 +58,22 @@ CATEGORIES = [
             'other reliably, with full audit trails.'),
         'services': [
             ('Omnichannel SMS & WhatsApp',
-             'One API for SMS, WhatsApp Business, USSD and email. Reach '
-             'customers on the channels Africa actually uses, with delivery '
-             'reports and failover routing.',
-             'WhatsApp Business API, Bulk & transactional SMS, USSD menus, '
-             'Chatbots & auto-replies'),
+             'One API for SMS, WhatsApp Business, USSD, email and push. '
+             'Send OTPs, payment confirmations, appointment reminders, '
+             'delivery updates and marketing broadcasts — with failover '
+             'routing, delivery reports and two-way conversations that '
+             'flow straight into your CRM or ticketing system.',
+             'WhatsApp Business API, Bulk & transactional SMS, '
+             'OTPs & smart reminders, Two-way chat & chatbots, '
+             'USSD menus, Delivery & read reports'),
+            ('CRM & Ticketing Integration',
+             'Every WhatsApp message, SMS reply and missed call becomes a '
+             'lead or a ticket — automatically. We wire your messaging '
+             'channels into Salesforce, HubSpot, Zoho, Odoo, Zammad or '
+             'your custom helpdesk, with SLA-breach alerts pushed back to '
+             'your team on WhatsApp.',
+             'Salesforce · HubSpot · Zoho · Odoo, Auto-ticket from '
+             'WhatsApp/SMS, SLA breach alerts, 360° customer timeline'),
             ('Mobile Money & Payments',
              'Battle-tested integrations with MTN MoMo, Airtel Money, '
              'M-Pesa and card rails — collections, disbursements and '
@@ -105,11 +116,49 @@ CATEGORIES = [
              'contracts and knowledge bases — private, cited and accurate.',
              'Private LLM deployments, Vector databases, '
              'Citation-backed answers, Multi-language support'),
+            ('Local Hosting & Data Residency',
+             'Host in-country when the law or your regulator says data '
+             'must not leave. We run managed hosting in Ugandan and Kenyan '
+             'data centres — meeting Uganda DPPA, Kenya DPA and central-'
+             'bank data-residency rules — with in-region backups and '
+             'hybrid links to AWS, Azure or GCP for what may travel.',
+             'In-country data centres (UG · KE), Data-residency '
+             'compliance, Managed VPS & colocation, In-region backups & '
+             'DR, Hybrid cloud links'),
             ('Data Engineering & BI',
              'Warehouses, pipelines and dashboards that turn scattered '
              'operational data into decisions.',
              'Data warehouses, ETL pipelines, Power BI & Metabase, '
              'Executive dashboards'),
+        ],
+    },
+    {
+        'name': 'Okumpi Observe', 'icon': 'eye', 'accent': 'sky',
+        'tagline': 'See it before it breaks',
+        'description': (
+            'Most providers stop at monitoring dashboards. We go further — '
+            'mining your logs and utilisation history for capacity advisory: '
+            'what to scale, what you are over-paying for, and how to stay '
+            'highly available under real traffic peaks.'),
+        'services': [
+            ('Monitoring & Alerting',
+             'Full-stack observability — metrics, logs, traces and uptime — '
+             'with alerts that reach your team on WhatsApp, SMS and email '
+             'before customers notice anything.',
+             'Prometheus & Grafana, Log aggregation (Loki/ELK), Uptime & SSL '
+             'monitoring, WhatsApp/SMS alerting'),
+            ('Capacity Advisory',
+             'We analyse your logs and utilisation trends to tell you exactly '
+             'what to scale up, what to scale down, and where you are paying '
+             'for overkill — a right-sizing report with numbers, not guesses.',
+             'Utilisation & trend analysis, Right-sizing reports, Cloud cost '
+             'optimisation, Growth forecasting'),
+            ('High Availability & Scaling',
+             'Load testing, autoscaling, failover and disaster recovery '
+             'engineered so month-end peaks and campaign spikes never take '
+             'you down.',
+             'Load & stress testing, Autoscaling design, Failover & DR '
+             'drills, Zero-downtime deploys'),
         ],
     },
     {
@@ -193,6 +242,42 @@ CATEGORIES = [
              'technology-driven proposals to governments and enterprises.',
              'Digital strategy, Proposal & bid support, Technical writing, '
              'ICT policy advisory'),
+        ],
+    },
+    {
+        'name': 'Okumpi Reach', 'icon': 'megaphone', 'accent': 'rose',
+        'tagline': 'Be found. Be trusted. Be chosen.',
+        'description': (
+            'Digital marketing and social media run by the same team that '
+            'builds your systems — campaigns wired to real analytics, and '
+            'official platform verification that makes your brand '
+            'impersonation-proof.'),
+        'services': [
+            ('Digital Marketing & SEO',
+             'Search-first growth: SEO, Google and Meta ads, landing pages '
+             'and email/SMS/WhatsApp campaigns — measured end-to-end to '
+             'enquiries and sales, not vanity clicks.',
+             'SEO & content strategy, Google & Meta ads, Email/SMS/WhatsApp '
+             'campaigns, Conversion tracking'),
+            ('Social Media Management',
+             'Content calendars, community management and monthly reporting '
+             'across the platforms your customers actually use — in the '
+             'languages they speak.',
+             'Content calendars, Community management, Short-form video, '
+             'Monthly analytics'),
+            ('Advertising & Media Buying',
+             'Full-funnel advertising from creative to placement: Google, '
+             'Meta, TikTok and LinkedIn campaigns, programmatic display, '
+             'and negotiated radio and out-of-home slots — every shilling '
+             'tracked to enquiries and sales.',
+             'Campaign strategy & creative, Google · Meta · TikTok · '
+             'LinkedIn, Programmatic display, Radio & OOH buying'),
+            ('Verification & Brand Protection',
+             'We shepherd official verification on Meta, X, TikTok and '
+             'WhatsApp Business, lock down your handles, and monitor for '
+             'impersonators and scam pages targeting your customers.',
+             'Meta / X / TikTok verification, WhatsApp Business green tick, '
+             'Handle security & 2FA, Impersonation takedowns'),
         ],
     },
 ]
@@ -323,9 +408,11 @@ FAQS = [
     ('What exactly does Okumpi do?',
      'We are a full-service ICT company. One team covers software '
      'engineering (web, mobile, SDKs), systems integration (payments, '
-     'SMS/WhatsApp, tax authorities), cloud and AI, cybersecurity and '
-     'ethical hacking, networking infrastructure, and managed support. '
-     'You get one accountable partner instead of five vendors.'),
+     'SMS/WhatsApp, tax authorities), cloud and AI, observability with '
+     'capacity advisory, cybersecurity and ethical hacking, networking '
+     'infrastructure, managed support, and digital marketing with '
+     'social-media verification. One accountable partner instead of '
+     'six vendors.'),
     ('Which countries do you operate in?',
      'We are headquartered in Kampala, Uganda with an office in Nairobi, '
      'Kenya, and we deliver projects across 12+ African countries '
@@ -339,8 +426,10 @@ FAQS = [
     ('Can you integrate with mobile money and WhatsApp?',
      'Yes — it is one of our specialities. We run production integrations '
      'with MTN MoMo, Airtel Money and M-Pesa, and we are experienced with '
-     'the WhatsApp Business API, bulk SMS and USSD. One API, every '
-     'channel your customers use.'),
+     'the WhatsApp Business API, bulk SMS and USSD. We also automate '
+     'notifications — OTPs, reminders, payment confirmations — and pipe '
+     'replies straight into your CRM or ticketing system as leads and '
+     'tickets. One API, every channel your customers use.'),
     ('How do you handle security and compliance?',
      'Security is built in, not bolted on. Our certified ethical hackers '
      'test everything we ship, we align with ISO 27001, and we build to '
@@ -497,6 +586,11 @@ KB_ARTICLES = [
     ('Getting started with the Okumpi Messaging SDK', 'Okumpi Integrate',
      'Install the SDK, obtain API keys, send your first SMS and WhatsApp '
      'message, and set up delivery webhooks — in under 15 minutes.'),
+    ('Piping WhatsApp into your ticketing system', 'Okumpi Integrate',
+     'Webhook → queue → ticket: how we map WhatsApp conversations to '
+     'tickets with SLA timers, agent assignment and customer timelines — '
+     'including the 24-hour session and template-message rules you must '
+     'respect.'),
     ('WhatsApp webhook setup checklist', 'Okumpi Integrate',
      'Verify tokens, validate signatures, respond within timeout, queue '
      'processing — everything your endpoint must do to stay healthy.'),
