@@ -1,0 +1,30 @@
+# ==========================================================================
+# Okumpi website — production compose (single container)
+#
+#   cp .env.example .env     # then edit .env (secret key + domain)
+#   docker compose up -d --build
+#
+# The site listens ONLY on 127.0.0.1:8080 of the host, so nothing else
+# (Postal, its Caddy, other containers) is touched. Caddy reverse-proxies
+# okumpi.com to it — see Caddyfile.okumpi / DEPLOY.md.
+# ==========================================================================
+services:
+  web:
+    build: .
+    image: okumpi/home-web:latest
+    container_name: okumpi-web
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "127.0.0.1:8080:8080"   # host:container — change host port here if 8080 is taken
+    volumes:
+      - okumpi_data:/data        # persistent SQLite database
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  okumpi_data:

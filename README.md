@@ -79,8 +79,19 @@ okumpi_v2/
   arrows & dots
 - Breakpoints: 1180px / 1080px / 820px / 620px — works down to 320px
 
-## Production notes
+## Production (Docker)
 
-- Set `DEBUG = False`, a real `SECRET_KEY`, and `ALLOWED_HOSTS` in `okumpi/settings.py`
-- `python manage.py collectstatic` and serve `staticfiles/` (e.g. WhiteNoise/Nginx)
-- Change the admin password: `python manage.py changepassword admin`
+The site ships as a **single production container** (gunicorn + WhiteNoise +
+SQLite on a volume). Full step-by-step guide for a VM already running
+Postal + Caddy: **[DEPLOY.md](DEPLOY.md)**. Short version:
+
+```bash
+git clone https://github.com/OkumpiTech/home_web.git okumpi-web && cd okumpi-web
+cp .env.example .env   # set DJANGO_SECRET_KEY + domains
+docker compose up -d --build
+# then point okumpi.com to 127.0.0.1:8080 in your Caddyfile (see Caddyfile.okumpi)
+docker compose exec web python manage.py changepassword admin
+```
+
+All settings are environment variables (see `.env.example`); with none set,
+`python manage.py runserver` still works for development exactly as before.

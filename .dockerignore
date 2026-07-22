@@ -1,0 +1,16 @@
+.git
+.gitignore
+__pycache__
+**/__pycache__
+*.pyc
+db.sqlite3
+db.sqlite3-*
+staticfiles
+media
+venv
+.venv
+.env
+*.zip
+README.md
+DEPLOY.md
+Caddyfile.okumpi

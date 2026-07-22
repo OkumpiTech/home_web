@@ -1,0 +1,32 @@
+# ==========================================================================
+# Replacement for /opt/postal/config/Caddyfile
+#
+# Postal keeps mta.okumpi.com on port 5000 — unchanged.
+# okumpi.com now goes to the website container on 127.0.0.1:8080.
+# Caddy obtains/renews the HTTPS certificates automatically.
+# ==========================================================================
+
+# Postal web interface (unchanged)
+mta.okumpi.com {
+  reverse_proxy 127.0.0.1:5000
+}
+
+# Okumpi website (new)
+okumpi.com {
+  reverse_proxy 127.0.0.1:8080
+}
+
+# Only keep this block if DNS for www.okumpi.com points to this server,
+# otherwise delete it (Caddy would fail to get a certificate for it).
+www.okumpi.com {
+  redir https://okumpi.com{uri} permanent
+}
+
+# If you use Postal open/click tracking you may need to add additional
+# hosts using the format below.
+#
+# click.yourdomain.com {
+#   reverse_proxy 127.0.0.1:5000 {
+#     header_up X-Postal-Track-Host "1"
+#   }
+# }
